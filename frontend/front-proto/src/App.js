@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+    render() {
+        return (
+          <div>
+          {
+            this.state.contacts.map(contact => <div>{contact.name.title} {contact.name.first} {contact.name.last}</div>)
+          }
+          </div>
+        )
+    }
+
+    state = {
+        contacts: []
+    };
+
+    componentDidMount() {
+        fetch('https://randomuser.me/api/')
+            .then(res => res.json())
+            .then((data) => {
+                this.setState({ contacts: data.results })
+            })
+            .catch(console.log)
+    }
 }
 
 export default App;
