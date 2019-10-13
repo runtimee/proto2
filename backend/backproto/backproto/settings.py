@@ -15,7 +15,7 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
+print("BASE_DIR:", BASE_DIR)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
@@ -121,3 +121,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# https://www.fusionbox.com/blog/detail/create-react-app-and-django/624/
+# https://docs.djangoproject.com/en/2.2/howto/static-files/
+
+# https://stackoverflow.com/questions/9856683/using-pythons-os-path-how-do-i-go-up-one-directory
+# To get a folder up just use os.path.dirname again
+REACT_APP_DIR = os.path.join(os.path.dirname(os.path.dirname(BASE_DIR)), 'frontend', 'front-proto')
+print("REACT_APP_DIR:", REACT_APP_DIR)
+STATICFILES_DIRS = [
+    os.path.join(REACT_APP_DIR, 'build', 'static'),
+]
+
