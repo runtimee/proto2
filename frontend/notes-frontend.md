@@ -1,6 +1,6 @@
 https://reactjs.org/docs/create-a-new-react-app.html#create-react-app
 https://github.com/facebook/create-react-app
-
+```
 $ brew install npm
 $ brew upgrade npm   # npm 12.11.1
 
@@ -8,16 +8,18 @@ $ npx create-react-app front-proto # npx is not a typo — it’s a package runn
 $ cd front-proto/
 
 $ npm start
-
+```
 
 https://pusher.com/tutorials/consume-restful-api-react
 https://reacttraining.com/react-router/web/guides/quick-start
 
 # Semi-prod
+```
 $ yarn run build
+```
 Then assets are under folder `frontend/front-proto/build`
 
-
+```
 $ tree build
 build
 ├── asset-manifest.json
@@ -42,3 +44,4 @@ build
         └── runtime-main.d2045a94.js.map
 
 3 directories, 17 files
+```
