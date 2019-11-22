@@ -21,12 +21,18 @@ class ProTableController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 300
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let reusedCell = tableView.dequeueReusableCell(withIdentifier: "ChristmasTree")
-        let cell = reusedCell!  // This fails because there is no recycled cells
+        let cell: UITableViewCell
+        if let reusedCell = tableView.dequeueReusableCell(withIdentifier: "ChristmasTree") {
+            debugPrint("DQ DQ")
+            cell = reusedCell
+        } else {
+            debugPrint("New New")
+            cell = UITableViewCell()
+        }
         cell.textLabel?.text = "Here I am"
         return cell
     }
