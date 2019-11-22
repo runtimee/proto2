@@ -25,7 +25,8 @@ class ProTableController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()  // This works, but do not do this due to performance reason
+        let reusedCell = tableView.dequeueReusableCell(withIdentifier: "ChristmasTree")
+        let cell = reusedCell!  // This fails because there is no recycled cells
         cell.textLabel?.text = "Here I am"
         return cell
     }
