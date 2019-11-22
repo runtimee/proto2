@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = ViewController()    // In ViewController.swift
+        window?.rootViewController = ProTableController()
         window?.rootViewController?.view.backgroundColor = .yellow  // So we can see it
         window?.makeKeyAndVisible()
 
