@@ -12,6 +12,7 @@ class ProTableController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ChristmasTree")
     }
 
     // MARK: - Table view data source
@@ -25,14 +26,7 @@ class ProTableController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell
-        if let reusedCell = tableView.dequeueReusableCell(withIdentifier: "ChristmasTree") {
-            debugPrint("DQ DQ")
-            cell = reusedCell
-        } else {
-            debugPrint("New New")
-            cell = UITableViewCell(style: .default, reuseIdentifier: "ChristmasTree")
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ChristmasTree")!
         cell.textLabel?.text = "Here I am"
         return cell
     }
