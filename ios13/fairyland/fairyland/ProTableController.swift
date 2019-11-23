@@ -31,7 +31,7 @@ class ProTableController: UITableViewController {
             cell = reusedCell
         } else {
             debugPrint("New New")
-            cell = UITableViewCell()
+            cell = UITableViewCell(style: .default, reuseIdentifier: "ChristmasTree")
         }
         cell.textLabel?.text = "Here I am"
         return cell
